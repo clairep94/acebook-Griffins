@@ -65,12 +65,12 @@ const handleSubmit = async (event) => {
       <div>
         <a href='/profile' class="right" >return to your page</a>
 
-       
+      
           {/* This is conditonal, if you dont change your bio it wont display  */}
           {/* also check it our, I just learnt how to to comment in react :) */}
       {bioSubmit && (
           <div>
-           
+          
             <h2>Bio updated!</h2>
             
       
@@ -84,7 +84,7 @@ const handleSubmit = async (event) => {
           update bio
           <input type="submit" name="submit"/>
         </label>
-       
+      
 
         
       </form>
@@ -95,7 +95,7 @@ const handleSubmit = async (event) => {
       update your display name
           <input type="submit" name="submit"/>
         </label>
-       
+      
 
         
       </form>

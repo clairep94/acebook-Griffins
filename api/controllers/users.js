@@ -3,7 +3,7 @@ const User = require("../models/user");
 const TokenGenerator = require("../lib/token_generator");
 
 const UsersController = {
- 
+
 // finds a single user by id
   Find: (req, res) => {
     User.findById(req.user_id)
@@ -20,7 +20,7 @@ const UsersController = {
     });
   
   },
- 
+
   
   
   Create: (req, res) => {
@@ -32,7 +32,7 @@ const UsersController = {
         // checks for the specific error code for a duplicate unique key
         // changes the message acordingly we can use this to catch other errors if needed
         if(err.code === 11000){
-         
+      
           return res.status(400).json({message: 'This email is already registered with an account'})
 
         }

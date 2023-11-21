@@ -7,7 +7,7 @@ const ProfilePage = () =>{
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [userData, setUserData] = useState(null)
   const [name, setName] = useState(null)
- 
+
   // sends the fetch (get) request 
   useEffect(() => {
     // checks if signed in
@@ -37,7 +37,7 @@ const ProfilePage = () =>{
             setName(data.user.displayName)
           }
           
-         
+        
           
           
           
@@ -61,7 +61,7 @@ const ProfilePage = () =>{
   return (
     <>
       <div>
-       
+      
         <Navbar />
 
         {/* Hyperlink to update page */}

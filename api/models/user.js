@@ -7,7 +7,12 @@ const UserSchema = new mongoose.Schema({
   displayName: {type: String},
   profilePictureURL: {
   type: String
-}
+  
+},
+friends: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: 'User'
+},
 });
 // added new values: 
 // bio 
