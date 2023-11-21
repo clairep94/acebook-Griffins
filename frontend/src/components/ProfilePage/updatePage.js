@@ -6,6 +6,7 @@ const UpdatePage = ({navigate}) =>{
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [bioSubmit, setBioSubmit] = useState('')
   const [displayName, setDisplayName ] = useState('')
+  const [updateMsg, setUpdateMsg] = useState('')
   // handles the change so you can see what you're typing
   const handleChange = (event) => {
     if(event.target.id === "bioedit"){
@@ -24,6 +25,14 @@ const handleSubmit = async (event) => {
 
   // checks if token (if user signed in)
   if(token){
+    if(event.target.id == "bioSub"){
+      setUpdateMsg("Bio")
+    }
+    else{
+      setUpdateMsg(event.target.id)
+
+    }
+    
     
     event.preventDefault();
     
@@ -51,6 +60,7 @@ const handleSubmit = async (event) => {
       if(response.status === 200){
         console.log("updated bio")
         return response.json()
+        
       }
       else{
         console.log("did not work")
@@ -95,6 +105,7 @@ const handleSubmit = async (event) => {
       update your display name
           <input type="submit" name="submit"/>
         </label>
+        {updateMsg && ( <h2>{updateMsg} updated</h2>)}
        
 
         

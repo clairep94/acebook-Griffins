@@ -4,7 +4,7 @@ const TokenGenerator = require("../lib/token_generator");
 
 const UsersController = {
  
-// finds a single user by id
+// finds a single user by the id of the singned in user
   Find: (req, res) => {
     User.findById(req.user_id)
     // this populates the page with everything but the password
@@ -83,7 +83,25 @@ const UsersController = {
       res.status(200).json({ message: "bio", token: token });
     });
   }
+  
    
+  },
+  FindUser: (req, res) => {
+    // this function does the same thing as the find function but it takes the id from the params
+    // not the token
+    User.findById(req.params.id)
+    // this populates the page with everything but the password
+    // 
+    .populate('user_id', '-password')
+    .exec((err, users) => {
+      if (err) {
+        throw err;
+      }
+      // genrates new token for authentication
+      const token = TokenGenerator.jsonwebtoken(req.user_id)
+      res.status(200).json({ user: users, token: token });
+    });
+  
   },
 };
 
