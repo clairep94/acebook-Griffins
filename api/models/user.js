@@ -18,6 +18,7 @@ friends: {
 // bio 
 // display name 
 // image url (curently not in use)
+// friends as ids
 
 const User = mongoose.model("User", UserSchema);
 

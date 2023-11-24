@@ -8,6 +8,7 @@ const postsRouter = require("./routes/posts");
 const authenticationRouter = require("./routes/authentication");
 const usersRouter = require("./routes/users");
 const userDataRouter = require("./routes/userData")
+const FriendDataRouter = require("./routes/friends")
 const app = express();
 
 // setup for receiving JSON
@@ -44,6 +45,7 @@ app.use("/tokens", authenticationRouter);
 app.use("/users", usersRouter);
 // I configured the route to check for tokens
 app.use("/userData", tokenChecker, userDataRouter);
+app.use("/friends", tokenChecker, FriendDataRouter);
 
 
 // catch 404 and forward to error handler
