@@ -44,8 +44,13 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Password is required.']
   },
-  bio: { type: String },
-  profilePictureURL: { type: String }
+  friends: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+    bio: { type: String },
+    profilePictureURL: { type: String }
+  
 });
 
 // // Define a virtual property for fullName

@@ -13,6 +13,7 @@ const authenticationRouter = require("./routes/authentication");
 const usersRouter = require("./routes/users");
 const uploadImageRoute = require('./routes/upload_image');
 const userDataRouter = require("./routes/userData");
+const friendsrouter = require ("./routes/users");
 const app = express();
 
 // setup for receiving JSON
@@ -51,6 +52,7 @@ app.use('/upload_image', uploadImageRoute);
 app.use("/comments", tokenChecker, commentsRouter );
 // I configured the route to check for tokens
 app.use("/userData", tokenChecker, userDataRouter);
+app.use ("/users", tokenChecker, friendsrouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

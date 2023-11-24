@@ -92,7 +92,7 @@ const UsersController = {
 
     }
     else if(req.body.type === "firstName"){
-   
+
     User.updateOne(
       { _id: req.user_id },
       { $set: { firstName: req.body.firstName } })
@@ -122,6 +122,20 @@ const UsersController = {
       // 200 status used for put requests
       res.status(200).json({ message: "name", token: token });
     });
+
+    Friends: (req, res) => {
+      User.findById(req.user_id)
+      .populate('friends', '-password')
+      .exec((err, users) => {
+        if (err) {
+          throw err;
+        }
+        // genrates new token for authentication
+        const token = TokenGenerator.jsonwebtoken(req.user_id)
+        res.status(200).json({ user: users, token: token });
+      });
+    
+    },
   
   
   
