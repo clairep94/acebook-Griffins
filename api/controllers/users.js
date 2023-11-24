@@ -21,6 +21,20 @@ const UsersController = {
   
   },
 
+  Friends: (req, res) => {
+    User.findById(req.user_id)
+    .populate('user_id', '-password')
+    .exec((err, users) => {
+      if (err) {
+        throw err;
+      }
+      // genrates new token for authentication
+      const token = TokenGenerator.jsonwebtoken(req.user_id)
+      res.status(200).json({ user: users, token: token });
+    });
+  
+  },
+
   
   
   Create: (req, res) => {
