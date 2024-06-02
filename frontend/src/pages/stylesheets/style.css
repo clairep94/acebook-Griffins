@@ -1,73 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
-
-
+:root {
+  --AcebookBlue: #4267b2;
+  --AcebookFont: "Staatliches", sans-serif;
+  --MainFontColour: #888;
+}
 
 .wrap {
-    width: 100%;
-    }
-    
-    .floatleft {
-        float:left; 
-        width: 40%;
-        height: 400px;
-        padding: 20px; /* Add padding to create space around the elements */
-        box-sizing: border-box; 
-        
-    }
-    
-    .floatright {
-    float: right;
-    vertical-align: center;
-    /* height: 400px; */
-    width: 60%;
-    }
-    
-    .title{
-        font-family: 'Staatliches', sans-serif;
-        color:#4267B2;
-        font-size: 50px;
-    }
+  width: 100%;
+}
 
-    .spacer {
-        height: var(--spacer-height, 20px);
-      }
+.floatleft {
+  float: left;
+  width: 40%;
+  height: 400px;
+  padding: 20px; /* Add padding to create space around the elements */
+  box-sizing: border-box;
+}
 
-      .subtitles {
-        font-family: 'Staatliches', sans-serif;
-        color: #4267B2;
-        font-size: 20px;
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-      }
-      #welcome-to-acebook,
-      #your-friends-title,
-      #your-friend-requests-title{
-        font-size: 30px;
-      }
-      #feed-title{
-        font-size: 40px;
-      }
-      
+.floatright {
+  float: right;
+  vertical-align: center;
+  width: 60%;
+}
+
+.title {
+  font-family: "Staatliches", sans-serif;
+  color: #4267b2;
+  font-size: 50px;
+}
+
+.spacer {
+  height: var(--spacer-height, 20px);
+}
+
+.subtitles {
+  font-family: "Staatliches", sans-serif;
+  color: #4267b2;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#welcome-to-acebook,
+#your-friends-title,
+#your-friend-requests-title {
+  font-size: 30px;
+}
+#feed-title {
+  font-size: 40px;
+}
 
 /* Buttons */
 .Button {
   width: 150px; /* Set your desired fixed width for the submit button */
-  background-color: #4267B2;
+  background-color: #4267b2;
   color: white;
   padding: 14px 20px;
   margin: 0 auto;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  display: flex; 
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .Button:hover {
-  background-color: #5B7EC2;
+  background-color: #5b7ec2;
 }
 
 a {
@@ -75,5 +75,76 @@ a {
   text-decoration: inherit; /* no underline */
 }
 
+.BlackOutBackground {
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.ServerConnectPopUp {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: center;
+  border-radius: 15px;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.LoadingContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  gap: 20px;
+}
+
+.LoadingIcon {
+  font-size: 3rem;
+  color: var(--AcebookBlue);
+  animation: spin 2s linear infinite, fade 2s infinite;
+}
+
+.LoadingIcon:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.LoadingIcon:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.LoadingIcon:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.HereFromPortBox {
+  margin-top: 40px;
+  border: 2px solid var(--AcebookBlue);
+  border-radius: 5px;
+  color: var(--MainFontColour);
+  padding: 5px 0;/* Corrected from 'end' to 'flex-end' */
+}
 
 
+.HereFromPortBoxTitle {
+  font-family: var(--AcebookFont);
+  color: var(--AcebookBlue);
+  font-size: 1.5rem;
+}
+.HereFromPortBoxCredentials {
+  color: var(--AcebookBlue);
+}

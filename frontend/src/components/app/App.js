@@ -27,8 +27,6 @@ const App = () => {
       <Route path='/posts' element={<Feed navigate={useNavigate()} />} />
       <Route path='/login' element={<LoginPage navigate={useNavigate()} />} />
       <Route path='/custompost' element={<CustomFeed navigate={useNavigate()} />} />
-
-      {/* <Route path='/login' element={<LoginForm navigate={useNavigate()} />} /> */}
       <Route path='/signup' element={<SignUpForm navigate={useNavigate()} />} />
       <Route path='/new_post' element={<NewPostForm navigate={useNavigate()} />} />
       <Route path='/countdown' element={<Countdown navigate={useNavigate()} />} />

@@ -4,6 +4,8 @@ import SignUpForm from '../components/user/SignUpForm';
 import SignupSuccessPopup from '../components/user/SuccessfullySignedUpPopup';
 import LoginPopup from '../components/auth/LoginPopup';
 import '../pages/stylesheets/style.css';
+import ApiWakeup from '../components/utility/API_Wakeup';
+import HereFromMyPort from '../components/utility/HereFromMyPortfolio';
 
 
 const Welcome = ({ navigate }) => {
@@ -35,12 +37,16 @@ const Welcome = ({ navigate }) => {
   // ========= UI RENDERING =============
   return (
     <>
+    <ApiWakeup/>
       <Navbar />
       <div className="wrap">
         <div className="floatleft">
           <p className='title'>WELCOME TO ACEBOOK</p>
+          <p style={{'color': '#888'}}>Connecting Ace individuals from around the world since 2023...</p> 
+          
+          <HereFromMyPort/>
 
-          <p>Connecting Ace individuals from around the world since 2023...</p>
+
         </div>
         <div className="floatright">
           <div style={{ '--spacer-height': '80px' }} className="spacer"></div>
