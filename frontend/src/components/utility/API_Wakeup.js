@@ -15,6 +15,7 @@ const ApiWakeup = () => {
         });
         if (!response.ok) { throw new Error('Network response was not ok'); }
         const data = await response.json();
+        console.log(data)
         setServerStatus(data.serverLive);
       } catch (error) {
         console.error('Error pinging the server:', error);
@@ -26,6 +27,7 @@ const ApiWakeup = () => {
 
   return (
     <div>
+      {serverStatus}
       {serverStatus === null && (
         <div className='BlackOutBackground'>
           <div className='ServerConnectPopUp' >
