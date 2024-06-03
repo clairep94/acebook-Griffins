@@ -27,7 +27,6 @@ const ApiWakeup = () => {
 
   return (
     <div>
-      {serverStatus}
       {serverStatus === null && (
         <div className='BlackOutBackground'>
           <div className='ServerConnectPopUp' >
