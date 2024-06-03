@@ -4,13 +4,17 @@ const TokenGenerator = require("../lib/token_generator");
 
 const UsersController = {
 
+    //SeverLoad IS ONLY RELEVANT FOR HOSTING ON RENDER.COM FREETIER
+    SeverLoad: (req, res) => {
+      console.log('Checking Server Is Live')
+      return res.status(200).json({ serverLive: 'Server Is Live' });
+    },
+
   // CREATE NEW USER -- DOES NOT CHECK TOKEN ===========
   Create: (req, res) => {
     const user = new User(req.body);
 
     user.save((err) => {
-      //checks for any error
-      //TODO add to this, it is not taking the error messages specified in the schema.
       if (err) {
         // checks for the specific error code for a duplicate unique key
         // changes the message acordingly we can use this to catch other errors if needed
